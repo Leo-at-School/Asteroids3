@@ -1,0 +1,103 @@
+//Minor changes made by Leo :)
+//  - Variable name changes
+//  - Changes to comments
+//  - Floater vertex data has been changed to a 2d array
+//  - Floater orientation has been changed from degrees to radians
+
+public class Floater{
+  protected double[][] vertices;
+  protected color floaterColor;
+  protected double x, y,           //Center relative to the polygon
+                   orientation,    //Radians
+                   speedX, speedY,
+                   radius;
+  
+  protected double calculateRadius(){
+    double maxRadius = 0;
+    
+    double vertexX, vertexY;
+    for (int i = 0; i < vertices.length; i++){
+      vertexX = vertices[i][coordX];
+      vertexY = vertices[i][coordY];
+      maxRadius = Math.max(Math.sqrt(vertexX*vertexX + vertexY*vertexY), maxRadius);
+    }
+    
+    return maxRadius;
+  }
+  
+  //Accelerate the floater in the direction it is pointing (orientation)   
+  public void accelerate(double acceleration){    
+    speedX += acceleration*Math.cos(orientation);
+    speedY += acceleration*Math.sin(orientation);       
+  }
+  
+  //Rotate the floater some amount of radians
+  public void turn(double rotate){
+    orientation += rotate;   
+  }
+  
+  //Update the floater's position
+  public void move(){
+    //Move the floater       
+    x += speedX;    
+    y += speedY;     
+
+    //Wrap around the screen if needed
+    if (x > canvasWidth){     
+      x = 0;    
+    } else if (x < 0){     
+      x = canvasWidth;    
+    }
+    
+    if (y > canvasHeight){    
+      y = 0;    
+    } else if (y < 0){     
+      y = canvasHeight;    
+    }
+  }
+  
+  //Draw the floater
+  public void drawFloater(){         
+    fill(floaterColor);   
+    stroke(floaterColor);    
+    
+    //Move the center of the polygon to (0, 0) and set its orientation to 0 radians
+    translate((float)x, (float)y);
+    rotate((float)orientation);
+    
+    //Draw polygon
+    beginShape();
+    for (int i = 0; i < vertices.length; i++){
+      vertex((float)vertices[i][coordX], (float)vertices[i][coordY]);
+    }
+    endShape(CLOSE);
+
+    //Orient the polygon accordingly and move its position back to the desired location (The reverse of what was previously done)
+    rotate((float)-orientation);
+    translate((float)-x, (float)-y);
+  }
+  
+  public double getX(){
+    return x;
+  }
+  
+  public double getY(){
+    return y;
+  }
+  
+  public double getSpeedX(){
+    return speedX;
+  }
+  
+  public double getSpeedY(){
+    return speedY;
+  }
+  
+  public double getOrientation(){
+    return orientation;
+  }
+  
+  public double getRadius(){
+    return radius;
+  }
+} 
