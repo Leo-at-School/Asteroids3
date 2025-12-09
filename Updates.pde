@@ -118,4 +118,3 @@ public void shootBullet(){
     bullets.add(newBullet);
   }
 }
-
