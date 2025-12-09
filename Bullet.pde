@@ -19,6 +19,7 @@ public class Bullet extends Floater{
   
   public void drawFloater(){
     fill(bulletColor);
-    ellipse((float)x, (float)y, (float)bulletRadius, (float)bulletRadius);
+    ellipse(x, y, bulletRadius, bulletRadius);
   }
 }
+
