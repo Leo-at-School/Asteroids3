@@ -41,7 +41,7 @@ public void handlePlayerCollisions(){
   double playerX = player.getX();
   double playerY = player.getY();
   double playerRadius = player.getRadius();
-  ArrayList<Asteroid> temporaryAsteroidList = new ArrayList<>();
+  ArrayList<Asteroid> temporaryAsteroidList = new ArrayList<Asteroid>();
   
   Asteroid asteroidObject;
   double asteroidX, asteroidY, asteroidRadius, playerAsteroidDistance;
@@ -64,7 +64,7 @@ public void handlePlayerCollisions(){
 }
 
 public void handleBulletCollisions(){
-  ArrayList<Bullet> temporaryBulletList = new ArrayList<>();
+  ArrayList<Bullet> temporaryBulletList = new ArrayList<Bullet>();
   
   Bullet bulletObject;
   Asteroid asteroidObject;
@@ -118,3 +118,4 @@ public void shootBullet(){
     bullets.add(newBullet);
   }
 }
+
