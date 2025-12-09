@@ -1,8 +1,8 @@
 //Objects
 Spaceship player;
 Star[] stars = new Star[100];
-ArrayList<Asteroid> asteroids = new ArrayList<>();
-ArrayList<Bullet> bullets = new ArrayList<>();
+ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
 //Setup the player class
 public void playerSetup(){

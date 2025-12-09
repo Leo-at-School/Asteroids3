@@ -19,7 +19,7 @@ double minStarSpeed = 0.15;
 double maxStarSpeed = 0.4;
 
 //Asteroid settings
-double maxAsteroids = 50;
+double maxAsteroids = 20;
 double asteroidRotateSpeed = 0.1;
 double maxAsteroidSpeed = 2;
 double minAsteroidSpeed = 0.5;
